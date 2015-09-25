@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS Demo</title>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <script src="lib/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="comm.js"></script>
+  <script src="service.js"></script>
+</head>
+<body ng-app="demo">
+
+  <div class="container" style="margin-top:20px;">
+    <div ng-controller="parentCtrl">
+      <ul class="nav nav-tabs">
+        <li ng-class="{'active': selectedTab==1}"><a href="#" ng-click="selectedTab=1">作用域继承</a></li>
+        <li ng-class="{'active': selectedTab==2}"><a href="#" ng-click="selectedTab=2">注入服务</a></li>
+        <li ng-class="{'active': selectedTab==3}"><a href="#" ng-click="selectedTab=3">基于事件</a></li>
+      </ul>
+      <div ng-show="selectedTab==1">
+        <div ng-controller="childCtrl">
+          <h3>data in parent controller : {{data.name}}</h3>
+          <p>change data in child controller: </p>
+          <input class="form-control" type="text" ng-model="data.name">
+        </div>
+      </div>
+      <div ng-show="selectedTab==2">  
+        <div ng-controller="childCtrl1">
+          <h3>data in child controller 1 : {{data.name}}</h3>
+          <input class="form-control" type="text" ng-model="data.name">
+        </div>
+        <div ng-controller="childCtrl2">
+          <h3>data in child controller 2 : {{data.name}}</h3>
+          <input class="form-control" type="text" ng-model="data.name">
+        </div>
+      </div>
+      <div ng-show="selectedTab==3">  
+        <div ng-controller="outterCtrl">
+          <h3>data in outter controller: {{name}}</h3>
+          <div ng-controller="innerCtrl1">
+            <h3>data in inner controller 1 : {{name}}</h3>
+            <input class="form-control" type="text" ng-model="name" ng-change="change()">
+          </div>
+          <div ng-controller="innerCtrl2">
+            <h3>data in innner controller 2 : {{name}}</h3>
+            <input class="form-control" type="text" ng-model="name" ng-change="change()">
+          </div>
+          <hr>
+          <div ng-controller="innerCtrlA">
+            <h3>data in inner controller A : {{name}}</h3>
+            <input class="form-control" type="text" ng-model="name" ng-change="change()">
+          </div>
+          <div ng-controller="innerCtrlB">
+            <h3>data in innner controller B : {{name}}</h3>
+            <input class="form-control" type="text" ng-model="name" ng-change="change()">
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

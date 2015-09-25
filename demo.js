@@ -1,4 +1,4 @@
-angular.module('demoApp', [])
+angular.module('demo')
 
     .controller('ngRepeatCtrl', ['$scope', function($scope){
 
