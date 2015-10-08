@@ -16,7 +16,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			templateUrl: "page2.html"
 		})
 		.state("pageTab.page3", {
-			url: "/page3",
-			templateUrl: "page3.html"
+			url: "/page3?type&title",
+			templateUrl: "page3.html",
+			controller: 'page3Ctrl'
 		})
 })
+
+app.controller('page3Ctrl', ['$scope', '$stateParams', function($scope, $stateParams){
+	$scope.type = $stateParams.type;
+	$scope.title = $stateParams.title;
+}])
