@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+    <div class="panel-heading">ng-repeat中的ng-model</div>
+    <div class="panel-body">
+        <div ng-repeat="field in fields" style="margin-bottom:20px;">
+            <div class="form-group col-sm-12">
+                <label class="col-sm-1 control-label">{{field.name}}</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="field.model">
+                </div>
+                <label class="checkbox-inline col-sm-1" ng-repeat="s in field.selected">
+                    <input type="checkbox" ng-model="s.model"> {{s.name}}
+                </label>
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-offset-1 col-sm-11">
+                <button type="submit" class="btn btn-default" ng-click="submit()">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
