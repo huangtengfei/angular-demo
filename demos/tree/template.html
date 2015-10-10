@@ -1,18 +1,29 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <ul class="list-group">
-                <li class="list-group-item">aa</li>
-            </ul>
-        </div>
-        <div class="col-xs-3">
-            <ul class="list-group">
-                <li class="list-group-item">aa</li>
-            </ul>
-        </div>
-        <div class="col-xs-3">
-            <ul class="list-group">
-                <li class="list-group-item">aa</li>
+                <li class="list-group-item" ng-repeat="menu1 in modules" ng-click="selectMenu1(menu1)">
+                    <span ng-class="{true: 'glyphicon glyphicon-folder-open', false: 'glyphicon glyphicon-folder-close'}[menu1==selectedMenu1]" aria-hidden="true">
+                        {{menu1.name}}
+                    </span>
+                    <ul class="list-group" ng-show="menu1==selectedMenu1">
+                        <li class="list-group-item" ng-repeat="menu2 in menu1.childs" ng-click="selectMenu2(menu2)">
+                            <span ng-if="menu2.childs" ng-class="{true: 'glyphicon glyphicon-folder-open', false: 'glyphicon glyphicon-folder-close'}[menu2==selectedMenu2]" aria-hidden="true">
+                                {{menu2.name}}
+                            </span>
+                            <span ng-if="!menu2.childs" class="glyphicon glyphicon-file}[menu1==selectedMenu1]" aria-hidden="true">
+                                {{menu2.name}}
+                            </span>
+                            <ul class="list-group" ng-show="menu2==selectedMenu2">
+                                <li class="list-group-item" ng-repeat="menu3 in menu2.childs">
+                                    <span class="glyphicon glyphicon-file" aria-hidden="true">
+                                        {{menu3.name}}
+                                    </span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
