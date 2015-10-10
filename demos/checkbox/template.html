@@ -1,0 +1,43 @@
+
+<div class="panel panel-default">
+    <div class="panel-body" style="min-height: 300px;">
+        <div class="col-xs-4">
+            <ul class="list-group">
+                <li class="list-group-item col-xs-12" ng-repeat="item in modules">
+                    <input class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
+                    <span class="col-xs-8" ng-click="selectLevel1(item)">{{item.name}}</span>
+                    <span ng-if="item.childs" class="col-xs-2 glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-4" ng-if="level2">
+            <ul class="list-group">
+                <li class="list-group-item col-xs-12" ng-repeat="item in level2">
+                    <input class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
+                    <span class="col-xs-8" ng-click="selectLevel2(item)">{{item.name}}</span>
+                    <span ng-if="item.childs" class="col-xs-2 glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-4" ng-if="level3">
+            <ul class="list-group">
+                <li class="list-group-item col-xs-12" ng-repeat="item in level3">
+                    <input class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
+                    <span class="col-xs-10">{{item.name}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12">
+            <hr/>
+        </div>
+
+        <div class="well col-xs-12">
+            <p>共有 {{selected.length}} 个选择：</p>
+            <button ng-repeat="item in selected" class="btn btn-default" style="margin-right: 5px;">{{item.name}}
+                <span aria-hidden="true" ng-click="remove(item)">&times;</span>
+            </button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>职业</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in persons">
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.job}}</td>
+                <td><a ui-sref="Detail({id: person.guid})">详情</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

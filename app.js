@@ -38,4 +38,28 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
             controller: 'tab3Ctrl'
         })
 
+        .state("List", {
+            url: '/list',
+            templateUrl: 'demos/passParams/list.html',
+            controller: 'ListCtrl'
+        })
+
+        .state("Detail", {
+            url: "/detail/:id",
+            templateUrl: "demos/passParams/detail.html",
+            controller: 'DetailCtrl'
+        })
+
+        .state("Checkbox", {
+            url: "/checkbox",
+            templateUrl: "demos/checkbox/template.html",
+            controller: "CheckboxCtrl"
+        })
+
+        .state("Tree", {
+            url: "/tree",
+            templateUrl: "demos/tree/template.html",
+            controller: "TreeCtrl"
+        })
+
 }])
