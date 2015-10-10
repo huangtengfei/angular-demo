@@ -64,7 +64,7 @@ app.controller('CheckboxCtrl', ['$scope', 'CheckboxData', function($scope, Check
                             if(item2.id == item.id){
                                 item2.checked = false;
                                 return;
-                            }else if(item.childs){
+                            }else if(item2.childs){
                                 item2.childs.forEach(function(item3){
                                     if(item3.id == item.id){
                                         item3.checked = false;
