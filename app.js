@@ -62,4 +62,10 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
             controller: "TreeCtrl"
         })
 
+        .state("Copy", {
+            url: "/copy",
+            templateUrl: "demos/copy/template.html",
+            controller: "CopyCtrl"
+        })
+
 }])

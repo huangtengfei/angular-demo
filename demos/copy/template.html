@@ -1,0 +1,32 @@
+
+<h3>数组（对象）深拷贝，浅拷贝请看console</h3>
+
+<div class="panel panel-default">
+    <div class="panel-heading">panel 1</div>
+    <div class="panel-body">
+        <div ng-repeat="f1 in fields1 track by $index" style="margin-bottom:20px;">
+            <div class="form-group col-sm-12">
+                <label class="col-sm-1 control-label">{{f1.name}}</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="f1.model">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">panel 2</div>
+    <div class="panel-body">
+        <div ng-repeat="f2 in fields2 track by $index" style="margin-bottom:20px;">
+            <div class="form-group col-sm-12">
+                <label class="col-sm-1 control-label">{{f2.name}}</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" ng-model="f2.model">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
