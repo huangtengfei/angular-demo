@@ -1,5 +1,23 @@
+<style>
+    table td {
+        position: relative;
+    }
+    .buyer-info {
+        position: absolute;
+        top: 10px;
+        left: 80px;
+        background-color: #fff;
+        width: 250px;
+        height: 80px;
+        line-height: 30px;
+        padding: 10px;
+        border: 1px solid #dedede;
+    }
+</style>
+
+
 <div>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>姓名</th>
@@ -10,7 +28,16 @@
         </thead>
         <tbody>
             <tr ng-repeat="person in persons">
-                <td>{{person.name}}</td>
+                <td>
+                    <span ng-mouseenter="showInfo(person)" ng-mouseleave="hideInfo(person)">{{person.name}}</span>
+                    <div ng-show="person.show" class="buyer-info">
+                        <span>客户姓名：{{person.buyerName}}</span><br/>
+                        <span>客户手机：
+                            <span ng-if="!person.mobileNum">该客户暂未提供手机号码</span>
+                            <span ng-if="person.mobileNum">{{person.mobileNum}}</span>
+                        </span>
+                    </div>
+                </td>
                 <td>{{person.age}}</td>
                 <td>{{person.job}}</td>
                 <td><a ui-sref="Detail({id: person.guid})">详情</a></td>
