@@ -17,11 +17,11 @@ app.controller('childCtrl', ['$scope', function($scope){
 // 方式二
 
 app.controller('childCtrl1', ['$scope', 'Data', function($scope, Data){
-    $scope.data = Data;
+     Data.name = $scope.data;
 }]);
 
 app.controller('childCtrl2', ['$scope', 'Data', function($scope, Data){
-    $scope.data = Data;
+    $scope.data = Data.name;
 }]);
 
 

@@ -13,7 +13,7 @@
         <div class="col-xs-4" ng-if="level2">
             <ul class="list-group">
                 <li class="list-group-item col-xs-12" ng-repeat="item in level2">
-                    <input class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
+                    <input ng-if="!selectedLevel1.checked" class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
                     <span class="col-xs-8" ng-click="selectLevel2(item)">{{item.name}}</span>
                     <span ng-if="item.childs" class="col-xs-2 glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
                 </li>
@@ -22,7 +22,7 @@
         <div class="col-xs-4" ng-if="level3">
             <ul class="list-group">
                 <li class="list-group-item col-xs-12" ng-repeat="item in level3">
-                    <input class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
+                    <input ng-if="!selectedLevel2.checked" class="col-xs-2" type="checkbox" ng-model="item.checked" ng-click="select(item)"/>
                     <span class="col-xs-10">{{item.name}}</span>
                 </li>
             </ul>

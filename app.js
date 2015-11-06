@@ -68,4 +68,9 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
             controller: "CopyCtrl"
         })
 
+        .state("Directive", {
+            url: "/directive",
+            templateUrl: "demos/directive/template.html"
+        })
+
 }])

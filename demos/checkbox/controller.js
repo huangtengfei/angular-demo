@@ -29,24 +29,41 @@ app.controller('CheckboxCtrl', ['$scope', 'CheckboxData', function($scope, Check
     init();
 
     $scope.selectLevel1 = function (item) {
+        $scope.selectedLevel1 = item;
         $scope.level2 = item.childs;
     }
 
     $scope.selectLevel2 = function (item) {
+        $scope.selectedLevel2 = item;
         $scope.level3 = item.childs;
     }
 
     $scope.select = function(item){
         if(item.checked){
+            if($scope.selected.length >= 10){
+                alert('最多选择10个');
+                item.checked = false;
+                return;
+            }
             $scope.selected.push({
                 id: item.id,
                 name: item.name
+            })
+            item.childs.forEach(function(c){
+                $scope.selected.forEach(function(s, i){
+                    if(c.id == s.id){
+                        $scope.selected.splice(i, 1);
+                    }
+                })
             })
         }else{
             $scope.selected.forEach(function(s, i) {
                 if (s.id == item.id) {
                     $scope.selected.splice(i, 1);
                 }
+            })
+            item.childs.forEach(function(i){
+                i.checked = false;
             })
         }
     }
