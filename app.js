@@ -73,4 +73,14 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
             templateUrl: "demos/directive/template.html"
         })
 
+        .state("Scroll", {
+            url: "/scroll",
+            templateUrl: "demos/scroll/template.html"
+        })
+        .state("ScrollDetail", {
+            url: "/scrollDetail?isScroll",
+            templateUrl: "demos/scroll/detail.html",
+            controller: 'ScrollCtrl'
+        })
+
 }])

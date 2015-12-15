@@ -37,4 +37,8 @@ app.controller('DetailCtrl', ['$scope', function($scope){
     }
     $scope.viewData = {};
     $scope.viewData.type = 'all';
+
+    $scope.orderResolve = 1;
+    $scope.order = {};
+    $scope.order.productType = 2;
 }])

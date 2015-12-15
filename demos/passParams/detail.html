@@ -16,4 +16,34 @@
         <label>类别：</label>
         <span class="form-control-static">{{viewData.type}}</span>
     </div>
+
+    <div class="form-group">
+        <label>类别：</label>
+        <span class="form-control-static">{{viewData.type}}</span>
+    </div>
+
+    <div class="form-group col-xs-12">
+        <label class="col-xs-2">反馈</label>
+        <label class="col-xs-1 checkbox-inline minus-ml5">
+            <input type="radio" value="1" ng-model="orderResolve">通过
+        </label>
+        <label class="col-xs-2 checkbox-inline">
+            <input type="radio" value="0" ng-model="orderResolve"> 驳回
+        </label>
+    </div>
+
+    <div class="form-group col-xs-12" ng-show="orderResolve==0">
+        <label class="col-xs-2">驳回原因</label>
+                    <span class="col-xs-6 break-word">
+                        <textarea limit-area="250" class="form-control" ng-model="refuseReason" rows="7"></textarea>
+                    </span>
+    </div>
+
+    <div ng-show="(orderResolve==1) && (order.productType==2)">
+        金额
+    </div>
+    <div ng-show="(orderResolve==1) && (order.productType!=2)">
+        金额明细
+    </div>
+
 </form>
