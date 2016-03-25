@@ -1,0 +1,87 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        表单验证示例
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="myForm">
+
+            <div class="form-group" ng-class="{'has-error': myForm.myName.$touched && myForm.myName.$invalid}">
+                <label class="col-xs-2 control-label">name</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="myName" ng-model="formData.username"
+                           placeholder="2-10个中英文字符，aaa会重名，必填"
+                           name-check minlength="2" maxlength="10" required>
+                </div>
+                <div class="col-xs-4 form-control-static text-danger" ng-messages="myForm.myName.$error"
+                     ng-messages-include="demos/form/error.html" ng-show="myForm.myName.$touched">
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': myForm.myDesc.$touched && myForm.myDesc.$invalid}">
+                <label class="col-xs-2 control-label">desc</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="myDesc" ng-model="formData.desc"
+                           placeholder="1-20个英文字母"
+                           ng-pattern="/^[a-zA-Z]{1,20}$/">
+                </div>
+                <div class="col-xs-4 form-control-static text-danger" ng-messages="myForm.myDesc.$error"
+                     ng-show="myForm.myDesc.$touched">
+                    <div ng-message="pattern">描述格式不对</div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': myForm.myEmail.$touched && myForm.myEmail.$invalid}">
+                <label class="col-xs-2 control-label">email</label>
+                <div class="col-xs-6">
+                    <input type="email" class="form-control" name="myEmail" ng-model="formData.email"
+                           placeholder="必填"
+                           required>
+                </div>
+                <div class="col-xs-4 form-control-static text-danger" ng-messages="myForm.myEmail.$error"
+                     ng-show="myForm.myEmail.$touched">
+                    <div ng-message="required">必填</div>
+                    <div ng-message="email">邮箱格式不对</div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': myForm.myUrl.$touched && myForm.myUrl.$invalid}">
+                <label class="col-xs-2 control-label">url</label>
+                <div class="col-xs-6">
+                    <input type="url" class="form-control" name="myUrl" ng-model="formData.url">
+                </div>
+                <div class="col-xs-4 form-control-static text-danger" ng-messages="myForm.myUrl.$error"
+                     ng-show="myForm.myUrl.$touched">
+                    <div ng-message="url">网址格式不对</div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': myForm.myDate.$touched && myForm.myDate.$invalid}">
+                <label class="col-xs-2 control-label">date</label>
+                <div class="col-xs-6">
+                    <input type="date" class="form-control" name="myDate" ng-model="formData.date">
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': myForm.myNumber.$touched && myForm.myNumber.$invalid}">
+                <label class="col-xs-2 control-label">number</label>
+                <div class="col-xs-6">
+                    <input type="number" class="form-control" name="myNumber" ng-model="formData.number">
+                </div>
+                <div class="col-xs-4 form-control-static text-danger" ng-messages="myForm.myNumber.$error"
+                     ng-show="myForm.myNumber.$touched">
+                    <div ng-message="url">数字格式不对</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-6 col-xs-offset-2">
+                    <button type="submit" class="btn btn-primary"
+                            ng-disabled="myForm.$invalid">
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

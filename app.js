@@ -1,4 +1,4 @@
-var app = angular.module('demo', ['ui.router']);
+var app = angular.module('demo', ['ui.router', 'ngMessages']);
 
 app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
     $urlRouterProvider.otherwise('/menu');
@@ -81,6 +81,11 @@ app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider,
             url: "/scrollDetail?isScroll",
             templateUrl: "demos/scroll/detail.html",
             controller: 'ScrollCtrl'
+        })
+        .state("Form", {
+            url: "/form",
+            templateUrl: "demos/form/template.html",
+            controller: 'FormCtrl'
         })
 
 }])
